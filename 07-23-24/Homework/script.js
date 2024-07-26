@@ -9,7 +9,7 @@ let isCitizen = true;
 let email = "yanivridel@gmail.com";
 
 function greet(firstName,lastName){
-    let fullName = `${firstName} ${lastName}`.toUpperCase()
+    let fullName = `${firstName} ${lastName}`.toUpperCase();
     return `Hello, ${fullName}! Welcome to the IITC Bootcamp.`
 }
 
