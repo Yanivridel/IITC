@@ -42,7 +42,7 @@ function ATM(){
                 }
                 break;
             default:
-                console.log("Invalid action")
+                console.log("Invalid action");
         }
         exitStatus=confirm("Do you wanna exit?")
     }
