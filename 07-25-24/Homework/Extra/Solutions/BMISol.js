@@ -1,5 +1,5 @@
+// **** TASK 1: BMI **** //
 
-// **** TASK1: BMI **** //
 let bmiHistory = [];
 let exitStatus;
 

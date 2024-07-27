@@ -1,3 +1,5 @@
+// **** TASK 2: ATM **** //
+
 let accBalance=10000.678;
 let pin=1234;
 const maxDrawLim = 5000;
