@@ -11,7 +11,7 @@ do{  //MAIN EXIT LOOP
         let _weight = parseFloat(prompt("Enter your weight"));
 
         // Checking Valid Inputs
-        while(isNaN(_height) || isNaN(_weight)){
+        while(isNaN(_height) || isNaN(_weight) || _height <= 0 || _weight <= 0){
             console.log("Invalid height or weight");
             _height = parseFloat(prompt("Enter your height"));
             _weight = parseFloat(prompt("Enter your weight"));

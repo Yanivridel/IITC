@@ -26,9 +26,9 @@ function operate(){
         }
         else x = Number(x);
     } while(isNaN(x));
-    symbol = prompt("Enter operator (+,-,*,/,^,sqrt,abs,factorial");
+    symbol = prompt("Enter operator (+,-,*,/,^,sqrt,abs,factorial,km to miles,miles to km");
     if(symbol!==null) symbol=symbol.toLowerCase();
-    if(symbol!=="sqrt" && symbol!=="abs" && symbol!=="factorial"){
+    if(symbol!=="sqrt" && symbol!=="abs" && symbol!=="factorial" && symbol!=="km to miles" && symbol !=="miles to km"){
         do{
             y = prompt("Enter number or use MR");
             if(y!==null && y.toLowerCase()==="mr"){
@@ -64,6 +64,10 @@ function Calc(x,y,symbol){
             return abs(x);
         case "factorial":
             return factorial(x);
+        case "km to miles":
+            return kmToMiles(x);
+        case "miles to km":
+            return milesToKm(x);
         default:
             console.log("Invalid operator input");
             return -1;
@@ -123,4 +127,10 @@ function factorial(x){
         res*=i;
     }
     return res;
+}
+function kmToMiles(x){
+    return x*0.62137119;
+}
+function milesToKm(x){
+    return x*1.609344;
 }
