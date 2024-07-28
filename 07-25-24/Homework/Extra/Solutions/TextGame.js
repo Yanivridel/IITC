@@ -46,7 +46,7 @@ function room1DarkForest(){
             break;
     }
 }
-function room2DarkForest(){
+function room2AbandonedVillage(){
     alert(`The Abandoned Village\nThe houses are in ruins,
         with broken windows and doors hanging off their hinges.
         The air is thick with the smell of decay.`)
@@ -69,7 +69,9 @@ function room2DarkForest(){
             case 3:
                 let check= inventory.includes("torch");
                 if(check){
-                    console.log(`${name}, you manage to kill the monster!\nCurrent health: ${health}`);
+                    console.log(`${name}, you manage to distract the skeletons!\nCurrent health: ${health}`);
+                    decision = confirm("You found an Abandoned Sword, do you take it?")
+                    if (decision) inventory.push("abandoned sword");
                 }else{
                     random = getRandom(30,50);
                     health-=random;
@@ -80,7 +82,7 @@ function room2DarkForest(){
 }
 
 room1DarkForest();
-room2DarkForest();
+room2AbandonedVillage();
 
 
 function hadLost(health){
