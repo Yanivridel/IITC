@@ -19,6 +19,8 @@ temperature1 = temperature1*1.8 + 32
 let fruits= ["apple", "banana"];
 let object = {name:firstName,age:_age};
 console.log(object.name);
+object.city = "Holon";
+console.log(object.city);
 let count=5;
 count--;
 let greeting ="Good";
