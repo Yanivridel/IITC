@@ -1,65 +1,72 @@
 
 let i=0;
+function printArr(arr){
+    for(let i=0;i<arr.length;i++){
+        console.log(arr[i]);
+    }
+}
 //1
-console.log("Task 1");
-
+let fruits=[];
 //2
-console.log("Task 2");
-
+let numbers =[1,2,3,4,5];
 //3
-console.log("Task 3");
-
+let colors = ["red", "green", "blue"];
 //4
-console.log("Task 4");
-
+let mixed = [7,"43",true,6.24];
 //5
-console.log("Task 5");
-
+let seasons = ["Spring","Summer","Autumn","Winter"];
 //6
 console.log("Task 6");
-
+console.log(numbers.length);
 //7
 console.log("Task 7");
-
+function emptyCheck(arr) { return arr.length===0;}
+console.log(emptyCheck(fruits));
 //8
 console.log("Task 8");
-
+let dynamic = [3,5,9,11,2];
+console.log(dynamic.length);
 //9
 console.log("Task 9");
-
+dynamic.push(15);
+console.log(dynamic.length);
 //10
 console.log("Task 10");
-
+dynamic.pop();
+console.log(dynamic.length);
 //11
 console.log("Task 11");
-
+console.log(colors[0]);
 //12
 console.log("Task 12");
-
+console.log(seasons[seasons.length-1]);
 //13
 console.log("Task 13");
-
+console.log(numbers[Math.floor(numbers.length/2)]);
 //14
 console.log("Task 14");
-
+console.log(fruits[15]);
 //15
 console.log("Task 15");
-
+console.log(`The second color is ${colors[1]}`);
 //16
-console.log("Task 16");
-
+fruits[0] = "apple";
 //17
-console.log("Task 17");
-
+numbers[numbers.length-1] = 10;
 //1
-console.log("Task 18");
-
+numbers[2] *=2;
 //19
 console.log("Task 19");
-
+for(i=0;i<colors.length;i++){
+    colors[i] = colors[i].toUpperCase()
+}
+printArr(colors);
 //20
 console.log("Task 20");
-
+let temp = seasons[0];
+seasons[0] = seasons[seasons.length-1];
+seasons[seasons.length-1] = temp;
+printArr(seasons);
 //21
 console.log("Task 21");
 
@@ -74,7 +81,7 @@ console.log("Task 24");
 
 //25
 console.log("Task 25");
-
+/*
 //26
 console.log("Task 26");
 
@@ -299,3 +306,4 @@ console.log("Task 99");
 
 //100
 console.log("Task 100");
+*/
