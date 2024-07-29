@@ -181,6 +181,31 @@ while(sum<=exceed){
 console.log(sum);
 //22
 console.log("Task 22");
+//    *
+//   ***
+//  *****         
+//   *** 
+//    *
+n=11;
+n = n%2===0 ? n+1:n;
+let mid = Math.floor(n/2);
+let base = [];
+for(i=0;i<n;i++){
+    base.push(" ");
+    if(i===mid-1) base.push("*");
+}
+for(i=1;i<=n;i++){
+    console.log(base.join(""));
+    if(i<=mid){
+        base[mid +i] = "*";
+        base[mid -i] = "*";
+    }
+    else if(i>mid){
+        base[mid + (i-n)] = " ";
+        base[mid - (i-n)] = " ";
+    }
+}
+
 
 //23
 console.log("Task 23");
