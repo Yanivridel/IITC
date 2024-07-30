@@ -34,7 +34,8 @@ console.log("Blast Off!");
 //6
 console.log("Task 6");
 let fib0=0,fib1=1,fib2;
-console.log(`${fib0}\n${fib1}`);
+console.log(fib0);
+console.log(fib1);
 for(i=2;i<=10;i+=1){
     fib2=fib0+fib1;
     fib0=fib1;
@@ -205,7 +206,6 @@ for(i=1;i<=n;i++){
         base[mid - (i-n)] = " ";
     }
 }
-
 
 //23
 console.log("Task 23");
