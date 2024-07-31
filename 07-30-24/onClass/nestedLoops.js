@@ -1,5 +1,6 @@
 
 //1
+console.log("Task 1");
 let i=0,j=0;
 let pat = "";
 for(i=0;i<5;i++){
@@ -10,6 +11,7 @@ for(i=0;i<5;i++){
     console.log(pat);
 }
 //2
+console.log("Task 2");
 for(i=1;i<=5;i++){
     pat = "";
     for(j=1;j<=5;j++){
@@ -32,6 +34,7 @@ function findInMat(mat,val){
 }   
 findInMat(arr,7);
 //4
+console.log("Task 4");
 let vowels = "aeiouAEIOU"
 let str = "Hello how are you?"
 function countVowCons(str,vowels){
@@ -44,6 +47,7 @@ function countVowCons(str,vowels){
 }
 countVowCons(str,vowels);
 //5
+console.log("Task 5");
 function reverseStr(str){
     let rev = "";
     for(let i=str.length-1;i>=0;i--){
@@ -53,12 +57,14 @@ function reverseStr(str){
 }
 console.log(reverseStr(str));
 //6
+console.log("Task 6");
 pat = ""
 for(i=1;i<=5;i++){
     pat += i.toString();
     console.log(pat);
 }
 //7
+console.log("Task 7");
 arr = [[1, 2], [3, 4], [5, 6]]
 function sumArrays(arr){
     let sum = 0;
@@ -71,6 +77,7 @@ function sumArrays(arr){
 }
 console.log(sumArrays(arr));
 //8
+console.log("Task 8");
 function charFreq(str){
     let letters = [];
     let counts = [];
@@ -91,6 +98,7 @@ function charFreq(str){
 }
 charFreq(str);
 //9
+console.log("Task 9");
 arr = [[1, 2], [3, 4], [5, 6]];
 function flattenArr(arr){
     let temp = [];
@@ -103,6 +111,7 @@ function flattenArr(arr){
 }
 console.log(flattenArr(arr));
 //10
+console.log("Task 10");
 matrix = [
     [1, 2, 3],
     [4, 5, 6],
@@ -123,22 +132,21 @@ function transpose(mat){
 }
 console.log(transpose(matrix));
 //11
+console.log("Task 11");
 function isPalindrome(str){
-    let i=0;
-    let j=str.length-1;
+    let i=0, j=str.length-1;
     while(i<j){
-        if(str[i] != str[j]) return false;
-        j--;
-        i++;
+        if(str[i++] != str[j--]) return false;
     }
     return true;
 }
-str = "rdadr";
+str = "radar";
 console.log(isPalindrome(str));
 
 //12
-let  arr1 = [1, 2, 3, 4];
-let  arr2 = [3, 4, 5, 6];
+console.log("Task 12");
+let arr1 = [1, 2, 3, 4];
+let arr2 = [3, 4, 5, 6];
 
 function commonElem(arr1,arr2){
     let sol = [];
@@ -150,6 +158,7 @@ function commonElem(arr1,arr2){
 }
 console.log(commonElem(arr1,arr2));
 //13
+console.log("Task 13");
 range = [10, 20];
 
 function primeRange(range){
@@ -168,6 +177,7 @@ function isPrime(x){
 console.log(primeRange(range));
 
 //14
+console.log("Task 14");
 let mat = [[3, 1, 2], [1, 4, 5], [2, 3, 1], [6, 7, 9], [1, 1, 2], [10,2,-1]];
 
 function rowSumSort(mat){
