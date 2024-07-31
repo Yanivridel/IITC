@@ -36,14 +36,19 @@ findInMat(arr,7);
 //4
 console.log("Task 4");
 let vowels = "aeiouAEIOU"
-let str = "Hello how are you?"
+let str = "Hello, how are you?"
 function countVowCons(str,vowels){
-    let cons=0, vow = 0;
+    let cons=0, vow = 0, none=0;
     for(let i=0;i<str.length;i++){
-        if(vowels.includes(str[i])) vow+=1;
-        else cons +=1;
+        if(vowels.includes(str[i])) vow++;
+        else if(isLetter(str[i])) cons++;
+        else none++;
     }
-    console.log(`For input = "${str}", output: Vowels: ${vow}, Constants: ${cons}`);
+    console.log(`For input = "${str}", output: Vowels: ${vow}, Constants: ${cons}, None: ${none}`);
+}
+function isLetter(char){
+    char = char.toLowerCase().charCodeAt(0);
+    return (97 <= char && char <= 122);
 }
 countVowCons(str,vowels);
 //5
