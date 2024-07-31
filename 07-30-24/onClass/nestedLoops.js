@@ -136,12 +136,11 @@ console.log("Task 11");
 function isPalindrome(str){
     let i=0, j=str.length-1;
     while(i<j){
-        if(str[i++] != str[j--]) return false;
+        if(str[i++] !== str[j--]) return false;
     }
     return true;
 }
-str = "radar";
-console.log(isPalindrome(str));
+console.log(isPalindrome("radar"));
 
 //12
 console.log("Task 12");
