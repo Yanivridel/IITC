@@ -35,14 +35,14 @@ console.log(person1.isStudent);
 
 //2
 console.log("Exercise 2");
-let car = {
-    make: "Toyota",
-    model: "Corolla",
-    year: 2017
-}
-console.log(car.make, car["model"]);
-car.year += 1;
-console.log(car.year);
+// let car = {
+//     make: "Toyota",
+//     model: "Corolla",
+//     year: 2017
+// }
+// console.log(car.make, car["model"]);
+// car.year += 1;
+// console.log(car.year);
 
 //3
 console.log("Exercise 3");
@@ -84,3 +84,36 @@ let animal = {
 }
 console.log(`Species: ${animal["species"]} Sound: ${animal.sound}`);
 console.log(`Wild?: ${animal.isWild ? "Yes":"No"}`);
+
+// Practice Time:
+//1
+let car = {
+    make: "Toyota",
+    model: "Corolla",
+    year: 2017,
+    print: function(){
+        console.log(`Make: ${this.make}\nModel: ${this.model}\nYear: ${this.year}`);
+    }
+}
+console.log(car.year);
+car.year += 1;
+console.log(car.year);
+car.color = "Black";
+car.print();
+let keys = Object.keys(car);
+for(let i=0;i<keys.length;i++){
+    if(typeof(car[keys[i]]) !== "function" )
+    console.log(`${keys[i]}: ${car[keys[i]]}`); 
+}
+
+let person = {
+    firstName: "Yaniv",
+    lastName: "Ridel",
+    age: "23",
+    job: "Student",
+    calcBirthYear: function(){
+        return 2024-this.age;
+    }
+}
+console.log(person.calcBirthYear());
+console.log(Object.keys(person));
