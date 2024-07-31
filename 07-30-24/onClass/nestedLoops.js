@@ -18,9 +18,19 @@ for(i=1;i<=5;i++){
     console.log(pat);
 }
 //3
+console.log("Task 3");
 let arr = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
-
-
+function findInMat(mat,val){
+    let isFound = false,i,j;
+    for(i=0;i<mat.length && !isFound;i++){
+        for(j=0;j<mat[i].length && !isFound;j++){
+            if(mat[i][j] === val) { isFound = true; }
+        }
+    }
+    if(isFound) console.log(`Value ${val} found in position (${i-1},${j-1})`);
+    else console.log(`Value ${val} not in mat`);
+}   
+findInMat(arr,7);
 //4
 let vowels = "aeiouAEIOU"
 let str = "Hello how are you?"
