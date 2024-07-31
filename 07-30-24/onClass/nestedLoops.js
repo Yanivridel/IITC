@@ -141,6 +141,7 @@ function isPalindrome(str){
     return true;
 }
 console.log(isPalindrome("radar"));
+console.log(isPalindrome("radaar"));
 
 //12
 console.log("Task 12");
