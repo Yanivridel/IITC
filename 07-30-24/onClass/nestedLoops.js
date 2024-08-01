@@ -83,7 +83,7 @@ function sumArrays(arr){
 console.log(sumArrays(arr));
 //8
 console.log("Task 8");
-function charFreq(str){
+function charFreqWithArray(str){
     let letters = [];
     let counts = [];
     for(let i=0;i<str.length;i++){
@@ -97,11 +97,32 @@ function charFreq(str){
     }
     let msg = `For input = "${str}", output:\n`;
     for(let i=0;i<letters.length;i++){
-        msg += ` ${letters[i]}: ${counts[i]}\n`
+        msg += ` ${letters[i]}: ${counts[i]}`
+        msg += (i%3===0)? "\n":"\t";
     }
     console.log(msg);
 }
-charFreq(str);
+function charFreqWithObject(str){
+    let freqOjb = {};
+    for(let i=0;i<str.length;i++){
+        if(Object.keys(freqOjb).includes(str[i]))
+            freqOjb[str[i]]++;
+        else
+            freqOjb[str[i]]=1;
+    }
+    //print object
+    let keys = Object.keys(freqOjb);
+    let msg = `For input = "${str}", output:\n`;
+    for(let i=0;i<keys.length;i++){
+        msg += `${keys[i]}: ${freqOjb[keys[i]]}`;
+        msg += (i%3===0)? "\n":"\t";
+    }
+    console.log(msg);
+}
+
+charFreqWithArray(str);
+charFreqWithObject(str);
+
 //9
 console.log("Task 9");
 arr = [[1, 2], [3, 4], [5, 6]];
