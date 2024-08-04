@@ -492,9 +492,9 @@ let morseTranslator = {
     
 };
 
-console.log(morseTranslator.textToMorse("Hello how are you"));
-// console.log(morseTranslator.morseToText(".... . .-.. .-.. --- / .-- --- .-. .-.. -..")); // HELLO WORLD
-// console.log(morseTranslator.morseToText(".. / .-.. --- ...- . / -.-- --- ..- ")); // i love you
+console.log(morseTranslator.textToMorse("Hello how are you")); // .... . .-.. .-.. ---/.... --- .--/.- .-. ./-.-- --- ..-
+console.log(morseTranslator.morseToText(".... . .-.. .-.. --- / .-- --- .-. .-.. -..")); // HELLO WORLD
+console.log(morseTranslator.morseToText(".. / .-.. --- ...- . / -.-- --- ..- ")); // i love you
 
 
 
