@@ -452,19 +452,83 @@ let morseTranslator = {
         '---..':  '8',
         '----.':  '9',
         '-----':  '0',
-    },
+    },  
     textToMorse: function(text){
-    let res = text.toLowerCase().split("/");
-    return ;
+    let res = text.toLowerCase().split(" ");    
+    for(let i=0;i<res.length;i++){
+        res[i] = res[i].split("");
+        for(let j=0;j<res[i].length;j++){
+            let keys = Object.keys(this.alphabet);
+            for(let k=0; k < keys.length;k++){
+                if(res[i][j] === this.alphabet[keys[k]]){
+                    res[i][j] = keys[k];
+                    break;
+                }
+            }
+        }
+        res[i] = res[i].join(" ");
+    }
+    res = res.join("/");
+    return res;
     },
     morseToText: function(text){
-    
+    let res = text.split("/");
+    for(let i=0;i<res.length;i++){
+        res[i] = res[i].split(" ");
+        for(let j=0;j<res[i].length;j++){
+            let keys = Object.keys(this.alphabet);
+            for(let k=0; k < keys.length;k++){
+                if(res[i][j] === keys[k]){
+                    res[i][j] = this.alphabet[keys[k]];
+                    break;
+                }
+            }
+        }
+        res[i] = res[i].join("");
     }
-}
+    res = res.join(" ");
+    return res;
+    }
+    
+};
 
 console.log(morseTranslator.textToMorse("Hello how are you"));
-console.log(morseTranslator.textToMorse(".... . .-.. .-.. --- / .-- --- .-. .-.. -..")); // HELLO WORLD
+// console.log(morseTranslator.morseToText(".... . .-.. .-.. --- / .-- --- .-. .-.. -..")); // HELLO WORLD
+// console.log(morseTranslator.morseToText(".. / .-.. --- ...- . / -.-- --- ..- ")); // i love you
+
 
 
 //30
 console.log("Task 30");
+let stopwatch = {
+    startTime: 0,
+    isRunning: false,
+    elapsedTime:0,
+    start: function(){
+        this.isRunning = true;
+        this.startTime = new Date().getTime() / 1000;
+    },
+    stop: function(){
+        this.isRunning = false;
+        let seconds = new Date().getTime() / 1000;
+        this.elapsedTime = seconds - this.startTime;
+    },
+    reset: function(){
+        this.startTime = 0;
+        this.isRunning = false;
+        this.elapsedTime = 0;
+    },
+    getElapsedTime: function(){
+        return this.elapsedTime;
+    }
+}
+
+stopwatch.start();
+setTimeout(() => {
+    console.log("3 seconds have passed.");
+    stopwatch.stop();
+    console.log(stopwatch.getElapsedTime());
+  }, 3000);
+
+
+
