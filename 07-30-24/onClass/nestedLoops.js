@@ -110,6 +110,7 @@ function charFreqWithObject(str){
         else
             freqOjb[str[i]]=1;
     }
+    
     //print object
     let keys = Object.keys(freqOjb);
     let msg = `For input = "${str}", output:\n`;
