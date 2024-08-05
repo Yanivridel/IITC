@@ -39,7 +39,7 @@ function getStudentNames(students) {
 
 // TODO: Write a function to find a student by ID
 function getStudentById(students, id) {
-  for(let i=0;i<student.length;i++)
+  for(let i=0;i<students.length;i++)
     if(students[i].id === id)
       return students[i];
     return null;
@@ -97,10 +97,10 @@ function updatePrice(product, newPrice) {
 
 // TODO: Write a function to remove a category from the product
 function removeCategory(product, category) {
-  let catArr = product.categories;
+  let catArr = product.categories;  // By Reference
   for(let i=0;i<catArr.length;i++){
     if(catArr[i] === category){
-      product.categories.splice(i,1);
+      catArr.splice(i,1);
       return;
     }
   }
@@ -119,14 +119,14 @@ let products = [
 
 // TODO: Write a function to find the most expensive product
 function findMostExpensiveProduct(products) {
-  let max = -Infinity, argMax = -1;
+  let max = -Infinity, argMax;
   for(let i=0;i<products.length;i++){
     if(products[i].price > max){
       max = products[i].price;
       argMax = i;
     }
   }
-  return argMax!==-1 ? products[argMax]:null;
+  return argMax ? products[argMax]:null;
 }
 
 // let expensiveProduct = findMostExpensiveProduct(products);
@@ -134,15 +134,18 @@ function findMostExpensiveProduct(products) {
 
 // TODO: Write a function to return an array of only available product sizes
 function getAvailableSizes(products) {
-  let res = [];
+  let sizes = [];
   for(let i=0;i<products.length;i++)
     if(products[i].isAvailable)
-      res.push(products[i]);
-  return res;
+      for(let j=0; j<products[i].sizes.length;j++){
+        if(!sizes.includes(products[i].sizes[j]))
+          sizes.push(products[i].sizes[j]);
+      }
+  return sizes;
 }
 
-// let sizes = getAvailableSizes(products);
-// console.log("Available Sizes:", sizes);
+let sizes = getAvailableSizes(products);
+console.log("Available Sizes:", sizes);
 
 /////////////////////////////////////////////////////
 
