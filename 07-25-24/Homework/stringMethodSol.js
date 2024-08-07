@@ -66,10 +66,10 @@ function myCon(str1,str2){
 }
 console.log(myCon("Hello"," Ballow"));
 //14
-function myPad(str,start,char){
-    return str.padStart(start,char);
+function myPad(str, start, char) {
+    return str.padStart(start, char);
 }
-console.log(myPad("Hello",3,"x"));
+console.log(myPad("Hello", 8, "x"));  // Output: "xxxHello"
 //15
 function firstN(str,n){
     return str.slice(0,n);
