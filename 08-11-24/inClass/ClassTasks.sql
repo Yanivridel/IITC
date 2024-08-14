@@ -1,0 +1,59 @@
+-- TASKS IN CLASS
+
+--1
+--SELECT *
+--FROM Orders;
+--2
+--SELECT *
+--FROM Employees;
+--3
+--SELECT FirstName, HireDate, Region, Country
+--FROM Employees;
+--4
+--SELECT CustomerID, OrderID, OrderDate
+--FROM Orders;
+--5
+--SELECT ProductID ProID, ProductName ProNm, UnitPrice UntPr 
+--FROM [Products];
+--6
+--SELECT [Address] as 'add', City Ct, Region Reg
+--FROM Employees;
+--7
+--SELECT CustomerID, (Address + ' ' + City) as FullAddress
+--FROM Customers;
+--8
+--SELECT (FirstName + ' ' + LastName) as FullName,
+--(BirthDate + 8) as BirthDay,
+--ReportsTo as #Manager
+--FROM Employees;
+--9
+--SELECT DISTINCT City
+--FROM Employees
+--10
+--SELECT DISTINCT Country
+--FROM Employees
+--11
+--SELECT DISTINCT Title
+--FROM Employees
+--12
+--SELECT city, country
+--FROM Employees;
+
+--SELECT DISTINCT city,country
+--FROM Employees;
+--13
+--SELECT FirstName, BirthDate, BirthDate+5
+--FROM Employees;
+--14
+--SELECT ProductName, UnitPrice, UnitPrice+10
+--FROM [Products]
+--15
+--SELECT ProductID, ProductName, UnitPrice,
+--UnitPrice * 1.165 as NewPrice,
+--UnitsInStock, UnitsOnOrder,
+--UnitsInStock - UnitsOnOrder as UnitCount
+--FROM Products;
+--16
+SELECT ProductID, ProductName,
+((UnitsInStock - UnitsOnOrder)*UnitPrice) as UnitNotOrdered
+FROM Products;
