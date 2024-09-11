@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    min-width:fit-content;
+}
+
+/* INDEX */
+#main-content {
+    background-color: bisque;
+    margin: 10px;
+    padding: 5px;
+    height: 90vh;
+    display: flex;
+    /* flex-direction: column; */
+    /* justify-content: space-between; */
+    align-items: center;
+    flex-wrap: wrap;
+    
+}
+p {
+    padding: 10px;
+    margin: 3px;
+    background-color: rgb(215, 63, 63);
+    /* flex-grow: 1; */
+    flex-shrink: 0;
+}
+#main-content p:nth-child(even) {
+    background-color: aqua;
+    font-size: 10px;
+}
+#p1 {
+    /* align-self: self-end; */
+    /* flex-basis: 90px; */
+    flex-grow: 1;
+}
+#p2 {
+    flex-grow: 3;
+    flex-shrink: 1;
+}

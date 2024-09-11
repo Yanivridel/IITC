@@ -27,7 +27,7 @@ body {
 
     div {
         background-color: gray;
-        color: rgb(224, 221, 221);
+        color: rgb(251, 248, 248);
         padding: 10px;
         border-radius: 7px;
     }
@@ -47,10 +47,10 @@ body {
         background-color: red;
     }
     :nth-child(2){
-        background-color: green;
+        background-color: blue;
     }
     :nth-child(3){
-        background-color: blue;
+        background-color: green;
     }
 }
 
@@ -72,7 +72,7 @@ body {
     .red-container {
         position: relative;
         height: 200px;
-        width: 425px;
+        width: auto;
         margin: auto auto;
         background-color: red;
 
