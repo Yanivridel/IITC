@@ -15,6 +15,7 @@ html, body {
     justify-content: center;
     align-items: center;
     height: 100%;
+    background-color: rgb(237, 237, 247);
 }
 .main-content {
     background: linear-gradient(270deg, #fce4ec, #f8bbd0, #ffccbc, #fff9c4);
@@ -35,10 +36,10 @@ html, body {
     /* border: none; */
 }
 
-#add-button {
+#add-button, #clear-list {
     padding: 0.5rem;
     border-radius: 10px;
-    margin-bottom: 1.5rem;
+    margin: 0.6rem;
     background-color: rgb(242, 144, 109);
     border: none;
     outline: none;
@@ -49,13 +50,28 @@ html, body {
     transform: scale(1.05);
 }
 
+.list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+#filter {
+    border-radius: 10px;
+    background-color: rgb(245, 180, 156);
+    padding: 0.4rem;
+}
+
 ul {
-    border: 2px solid black;
+    /* border: 2px solid black; */
+    box-shadow: 5px 5px 15px rgb(185, 182, 182);
     list-style: none;
-    min-height: 100px;
+    border-radius: 10px;
+    height: 250px;
     padding: 1rem;
-    max-height: 332px;
+    margin-top: 1.5rem;
     overflow-y: auto;
+    background-color: #fae9e4;
 }
 li {
     display: flex;
@@ -71,7 +87,13 @@ icon:hover {
 }
 .check-and-text {
     display: flex;
+    align-items: center;
+    width: 80%;
     gap: 5px;
+}
+.task {
+    max-width: 200px;
+    overflow-x: auto;
 }
 .task.done {
     text-decoration:line-through;

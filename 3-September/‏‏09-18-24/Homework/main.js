@@ -2,28 +2,39 @@
 const _addButton = document.getElementById("add-button");
 const _input = document.getElementById("input");
 const _toDoList = document.getElementById("list");
-
+const _filter = document.getElementById("filter");
+const _clearList = document.getElementById("clear-list");
 
 _addButton.addEventListener('click', addToDo);
 _toDoList.addEventListener('click', (e) => { handleCheckTask(e)})
+_filter.addEventListener('change', displayList);
+_clearList.addEventListener('click', clear);
 
-// localStorage.clear();
-localStorage.setItem("list", JSON.stringify([]));
+function clear() {localStorage.clear(); displayList()};
+
+if(!localStorage.getItem("list"))
+    localStorage.setItem("list", JSON.stringify([]));
 
 function displayList() {
     const tasks = JSON.parse(localStorage.getItem("list"));
-    
     _toDoList.innerHTML = '';
+    if(!tasks) {
+        localStorage.setItem("list", JSON.stringify([]));
+        return;
+    }
 
-    for(const task of tasks) {        
+    for(const task of tasks) {
+        if(_filter.value === 'complete' && !task.isChecked ||
+            _filter.value === 'incomplete' && task.isChecked)
+            continue;
         _toDoList.innerHTML += `<li data-task-id=${task.id}>
                 <div class="check-and-text">
                     <input type="checkbox" ${task.isChecked ? "checked": ""}/>
                     <p class="task${task.isChecked ? " done":""}">${task.text}</p>
                 </div>
                 <div class="actions">
-                    <icon class="fas fa-edit"></icon>
-                    <icon class="fas fa-trash-alt"></icon>
+                    <i class="fas fa-edit"></i>
+                    <i class="fas fa-trash-alt"></i>
                 </div>
             </li>`;
 
@@ -72,27 +83,48 @@ function handleCheckTask(e) {
     const tasks = JSON.parse(localStorage.getItem("list"));
     if(e.target.nodeName === 'INPUT' && e.target.type === 'checkbox') {
         const taskText = e.target.parentElement.querySelector('p');
-
         for(let i=0; i < tasks.length; i++) {
-            if(tasks[i].id === parseInt(e.target.parentElement.parentElement.dataset.taskId)){
+            if(tasks[i].id === parseInt(e.target.closest('li').dataset.taskId)){
                 tasks[i].isChecked = !tasks[i].isChecked;
                 break;
             }
         }
-        localStorage.setItem("list", JSON.stringify(tasks));
-        displayList();
     }
-    if(e.target.nodeName === 'ICON' && e.target.classList.contains("fa-trash-alt")){
-        const li = e.target.parentElement.parentElement;
-
+    else if(e.target.nodeName === 'I' && e.target.classList.contains("fa-trash-alt")){
+        const li = e.target.closest('li');
         for(let i=0; i < tasks.length; i++) {
             if(tasks[i].id === parseInt(li.dataset.taskId)){
                 tasks.splice(i,1);
                 break;
             }
         }
-        localStorage.setItem("list", JSON.stringify(tasks));
-        displayList();
     }
+    else if(e.target.nodeName === 'I' && e.target.classList.contains("fa-edit")){
+        const taskText = e.target.closest('li').querySelector('p');
+        taskText.contentEditable = "true";
+        taskText.focus(); 
+        
+        taskText.addEventListener('blur', (e) => updateText(e));
+        taskText.addEventListener('keydown', (e) => updateText(e));
+
+        function updateText(e) {
+            if(!e.key || e.key === "Enter"){
+                taskText.contentEditable = "false";
+                for(const task of tasks){
+                    if(task.id === parseInt(e.target.closest('li').dataset.taskId)){
+                        task.text = taskText.textContent;
+                    }
+                }
+                localStorage.setItem("list", JSON.stringify(tasks));
+                displayList();
+            }
+        }
+        return;
+    }
+    else if(e.target.nodeName === 'P'){
+        return;
+    }
+    localStorage.setItem("list", JSON.stringify(tasks));
+    displayList();
 }
 

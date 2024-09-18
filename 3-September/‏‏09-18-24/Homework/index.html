@@ -12,20 +12,17 @@
         <div class="main-content">
         <input id="input" type="text">
         <button id="add-button">Add To-Do</button>
-        <p class="list-title">My To Do List:</p>
+        <div class="list-header">
+            <p class="list-title">My To Do List:</p>
+            <select id="filter">
+                <option value="all">All</option>
+                <option value="complete">Complete</option>
+                <option value="incomplete">Incomplete</option>
+            </select>
+        </div>
         <ul id="list">
-            <li>
-                <div class="check-and-text">
-                    <input type="checkbox" />
-                    <p class="task">To take a shower</p>
-                </div>
-                <div class="actions">
-                    <icon class="fas fa-edit"></icon>
-                    <icon class="fas fa-trash-alt"></icon>
-                </div>
-                
-            </li>
         </ul>
+        <button id="clear-list">Clear List</button>
     </div>
     </main>
     
