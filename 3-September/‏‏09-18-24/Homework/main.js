@@ -10,10 +10,12 @@ _toDoList.addEventListener('click', (e) => { handleCheckTask(e)})
 _filter.addEventListener('change', displayList);
 _clearList.addEventListener('click', clear);
 
-function clear() {localStorage.clear(); displayList()};
+function clear() {localStorage.clear(); /*displayList()*/};
 
 if(!localStorage.getItem("list"))
     localStorage.setItem("list", JSON.stringify([]));
+
+displayList();
 
 function displayList() {
     const tasks = JSON.parse(localStorage.getItem("list"));
@@ -27,7 +29,8 @@ function displayList() {
         if(_filter.value === 'complete' && !task.isChecked ||
             _filter.value === 'incomplete' && task.isChecked)
             continue;
-        _toDoList.innerHTML += `<li data-task-id=${task.id}>
+        _toDoList.innerHTML += 
+            `<li data-task-id=${task.id}>
                 <div class="check-and-text">
                     <input type="checkbox" ${task.isChecked ? "checked": ""}/>
                     <p class="task${task.isChecked ? " done":""}">${task.text}</p>
@@ -64,7 +67,6 @@ function displayList() {
         */
     }
 }
-displayList();
 
 function addToDo() {
     if(_input.value === "") return;

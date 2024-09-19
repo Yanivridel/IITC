@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 
-html, body {
+html {
     height: 100vh;
 }
 
@@ -16,6 +16,7 @@ html, body {
     align-items: center;
     height: 100%;
     background-color: rgb(237, 237, 247);
+    padding: 5rem;
 }
 .main-content {
     background: linear-gradient(270deg, #fce4ec, #f8bbd0, #ffccbc, #fff9c4);
@@ -27,13 +28,55 @@ html, body {
     box-shadow: 5px 5px 5px rgb(227, 226, 224);
 }
 
+table {
+    border: 2px solid black;
+    margin-block: 1rem;
+}
+table tr:nth-child(even) {
+    background-color: rgb(198, 235, 222);
+}
+table tr:nth-child(odd) {
+    background-color: rgb(158, 188, 178);
+}
+table tr:nth-child(1) {
+    background-color: rgb(140, 220, 140);
+}
+table tr:hover:not(:first-child) {
+    opacity: 70%;
+}
+
+th, td {
+    padding: 0.5rem;
+}
+input[type="number"] {
+    width: 40px;
+    /* -webkit-appearance: none; */
+    /* appearance: none; */
+}
+#products-container {
+    border: 1px solid black;
+    padding: 1rem;
+}
+.item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.2rem;
+}
+.prod-price {
+    color: rgb(14, 57, 58);
+    font-weight: bold;
+}
+
+
+
+
+
+/*
 #input {
     padding: 0.5rem;
     border-radius: 15px;
     margin-right: 0.9rem;
     font-weight: bold;
-    /* border:2px solid #f4eb98; */
-    /* border: none; */
 }
 
 #add-button, #clear-list {
@@ -99,7 +142,7 @@ i:hover {
 .task.done {
     text-decoration:line-through;
 }
-
+*/
 
 
 @keyframes gradientAnimation {

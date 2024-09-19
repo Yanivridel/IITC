@@ -9,24 +9,23 @@
 </head>
 <body>
     <main class="main-container">
-        <div class="main-content">
-        <input id="input" type="text">
-        <button id="add-button">Add To-Do</button>
-        <div class="list-header">
-            <p class="list-title">My To Do List:</p>
-            <select id="filter">
-                <option value="all">All</option>
-                <option value="complete">Complete</option>
-                <option value="incomplete">Incomplete</option>
-            </select>
-        </div>
-        <ul id="list">
-        </ul>
-        <button id="clear-list">Clear List</button>
-    </div>
+        <form class="main-content">
+            <input id="input" type="text">
+            <button id="add-button" type="button">Add To-Do</button>
+            <div class="list-header">
+                <p class="list-title">My To Do List:</p>
+                <select id="filter">
+                    <option value="all">All</option>
+                    <option value="complete">Complete</option>
+                    <option value="incomplete">Incomplete</option>
+                </select>
+            </div>
+            <ul id="list">
+            </ul>
+            <button id="clear-list" type="submit">Clear List</button>
+        </form>
     </main>
     
-
     <script src="main.js"></script>
 </body>
 </html>
