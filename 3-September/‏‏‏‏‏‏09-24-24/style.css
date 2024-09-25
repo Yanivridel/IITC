@@ -1,0 +1,227 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --component-background: #f8f5f0;
+    --dark-blue: #201f24;
+    --white: white;
+    --gray: #c7c3c2;
+    --button: #92b6bc;
+    --border-radius: 7px;
+    --shadow: 5px 5px 7px rgb(212, 211, 211);
+}
+
+html, body {
+    height: 100%;
+}
+
+/* Flex Classes */
+.flex {
+    display: flex;
+}
+.content-spaceEvenly {
+    justify-content: space-evenly;
+    gap: 15px
+}
+.content-spaceBetween {
+    justify-content: space-between;
+    gap: 20px
+}
+.content-center {
+    justify-content: center;
+    gap: 15px;
+}
+.items-center {
+    align-items: center;
+}
+.flex-wrap {
+    flex-wrap: wrap;
+}
+.flex-column {
+    flex-direction: column;
+}
+/* Main */
+main {
+    min-height: 100vh;
+    padding: 1rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+#main-content {
+    width: 75%;
+    min-width: 250px;
+    max-width: 1200px;
+    min-height: 500px;
+    border-radius: var(--border-radius);
+    background-color: var(--component-background);
+    box-shadow: var(--shadow);
+    gap: 1rem
+}
+.input, .select, .button {
+    margin-top: 5px;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+/* Add Edit Form */
+#black-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 100;
+    display: none;
+}
+#add-edit-form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    max-width: 600px;
+    min-height: 300px;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    z-index: 101; /* Above the overlay */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    /* display: flex; */
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+}
+#add-edit-form h2 {
+    width: fit-content;
+    padding-right: 20px;
+}
+.back-icon {
+    position: absolute;
+    top: 5%;
+    right: 3%;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.back-icon:hover {
+    transform: scale(1.05);
+}
+.inputs-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px
+}
+.inputs-container > div {
+    display: flex;
+    flex-direction: column;
+}
+#add-edit-form button {
+    background-color: var(--button);
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 0.5rem 0.8rem;
+    width: 80%;
+    margin-inline: auto;
+    transition: 0.3s ease;
+}
+/* Component Header */
+#main-content header {
+    color: var(--white);
+    background-color: var(--dark-blue);
+    padding: 1rem;
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+}
+.title {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+#content-header button {
+    padding: 0.8rem 1rem;
+    border: none;
+    border-radius: var(--border-radius);
+    background-color: var(--white);
+    transition: 0.3s ease;
+}
+#content-header button:hover {
+    transform: scale(1.05);
+}
+#salary-label {
+    min-width: 133px;
+}
+#name-input {
+    width: 120px;
+}
+#filter-container {
+    gap: 10px;
+}
+#filter-container > label {
+    min-width: 54px;
+}
+#sort-direction, #filter-select {
+    width: 100%;
+    max-width: 120px;
+}
+hr {
+    width: 90%;
+    margin-inline: auto;
+    border-color: var(--component-background);
+}
+/* Cards Grid */
+#cards-container {
+    padding: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 10px;
+    justify-items: center;
+    max-height: 600px;
+    overflow-y: auto;
+}
+.card {
+    width: 200px;
+    min-height: 200px;
+    padding: 0.5rem;
+    border-radius: var(--border-radius);
+    background-color: var(--white);
+    box-shadow: var(--shadow);
+    user-select: none;
+    cursor: grab;
+    overflow: hidden;
+}
+.card p span {
+    font-weight: bold;
+}
+.card-actions {
+    display: flex;
+    flex-wrap: wrap;
+}
+.card-actions button{
+    background-color: var(--button);
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 0.5rem 0.8rem;
+    margin: 0.5rem 0.2rem 0;
+    transition: 0.3s ease;
+}
+.card-actions button:hover {
+    transform: scale(1.03);
+    cursor: pointer;
+}
+.card:active {
+    cursor: grabbing;
+}
+.sortable-ghost {
+    opacity: 0.5;
+    background-color: #ddd;
+    border: 2px dashed #ccc;
+}
+
+@media (max-width: 550px) {
+    .inputs-container {
+        grid-template-columns: 1fr;
+    }
+}
