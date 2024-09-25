@@ -37,7 +37,7 @@ function renderCardsGrid(dontSort = false) {
     const regex = new RegExp(searchedName, 'i'); // insensitive for upper/lower case
 
     employees = employees.filter(employee => 
-        (employee.salary >= _salaryInput.value) && (employee.startDate > _dateInput.value) &&
+        (employee.salary >= Number(_salaryInput.value)) && (employee.startDate > _dateInput.value) &&
         (!searchedName || regex.test(`${employee.firstName} ${employee.lastName}`)));
 
     if(!dontSort && sortBy) {

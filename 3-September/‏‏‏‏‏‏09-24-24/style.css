@@ -55,6 +55,7 @@ main {
     min-width: 250px;
     max-width: 1200px;
     min-height: 500px;
+    max-height: 810px;
     border-radius: var(--border-radius);
     background-color: var(--component-background);
     box-shadow: var(--shadow);
@@ -183,14 +184,19 @@ hr {
 }
 .card {
     width: 200px;
-    min-height: 200px;
     padding: 0.5rem;
     border-radius: var(--border-radius);
     background-color: var(--white);
     box-shadow: var(--shadow);
     user-select: none;
     cursor: grab;
-    overflow: hidden;
+    overflow-wrap:anywhere;
+}
+.card-details {
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    gap:5px
 }
 .card p span {
     font-weight: bold;
