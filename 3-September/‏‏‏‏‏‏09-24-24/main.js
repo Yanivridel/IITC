@@ -100,6 +100,8 @@ function handleFormSubmit(e) {
     editId = null;
 }
 function handleCardContainerClick(e) {
+    console.log(e.target);
+    
     if(e.target.matches("button.edit-button")) {
         displayAddEditForm();
         const _card = e.target.closest(".card");
@@ -117,7 +119,7 @@ function handleCardContainerClick(e) {
             _addEditInputs[i].value = props[i];
     }
     else if(e.target.matches("button.remove-button")) {
-        const _cardId = e.target.closest(".card").dataset.id;        
+        const _cardId = e.target.closest(".card").dataset.id;
         removeEmployeeById(_cardId);
         renderCardsGrid();
     }
