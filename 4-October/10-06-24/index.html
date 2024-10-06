@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="flex-center">
+        <div id="main-container">
+            <div class="overlay hidden"></div>
+            <div class="exit-form hidden">
+                <p>Are you sure you want to exit?</p>
+                <div>
+                    <button class="exit-form-button keep-logged">Keep me logged in</button>
+                    <button class="exit-form-button exit">Exit</button>
+                </div>
+            </div>
+            <header>
+                <h1 class="title">ATM Machine</h1>
+            </header>
+            <div id="main-content">
+                <!-- Pin Form -->
+                <form class="enter-pin-container form active-flex">
+                    <label for="pin-input">Enter&nbsp;PIN:</label>
+                    <div class="relative active-block">
+                        <input id="pin-input" maxlength="4" type="text" inputmode="numeric" 
+                        pattern="\d{4}" placeholder="Enter 4-digit PIN">
+                        <button type="button" id="pin-button" class="submit-button">⟫</button>
+                    </div>
+                    <p class="error-msg"></p>
+                </form>
+                <!-- Select Action Form -->
+                <div class="choose-action-container form">
+                    <div class="exit-button">✖️</div>
+                    <h2>Select Action:</h2>
+                    <select>
+                        <option value="none">Choose...</option>
+                        <option value="show-balance">Show Balance</option>
+                        <option value="deposit">Deposit</option>
+                        <option value="withdraw">Withdraw</option>
+                        <option value="last-transactions">Last Transactions</option>
+                    </select>
+                    <div id="amount-container" class="hidden">
+                        <label for="amount-input">How much?</label>
+                        <div class="relative active-block">
+                            <input id="amount-input" type="number">
+                            <button id="amount-button" class="submit-button">⟫</button>
+                        </div>
+                    </div>
+                    <p id="amount-show" class="hidden">13,500</p>
+                    <ul class="trans-ul hidden"></ul>
+                    <p class="error-msg"></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script type="module" src="atm-main.js"></script>
+</body>
+</html>

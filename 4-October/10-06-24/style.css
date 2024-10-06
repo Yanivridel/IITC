@@ -1,0 +1,202 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --component-background: #f8f5f0;
+    --dark-blue: #201f24;
+    --white: white;
+    --gray: #c7c3c2;
+    --button: #92b6bc;
+    --border-radius: 7px;
+    --shadow: 5px 5px 7px rgb(212, 211, 211);
+}
+
+html, body {
+    font-size: 16px;
+    height: 100%;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+main.flex-center {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--gray);
+}
+
+#main-container {
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+    min-height: 400px;
+    width: 80%;
+    min-width: 235px;
+    max-width: 600px;
+    box-shadow: var(--shadow);
+    background-color: var(--component-background);
+    border-radius: var(--border-radius);
+}
+#main-container header {
+    padding: 1rem;
+    background-color: var(--dark-blue);
+    color: var(--component-background);
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+}
+
+#main-content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    /* align-items: center; */
+}
+
+.hidden {
+    display: none;
+}
+div.overlay {
+    position: fixed;
+    top:0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+    background-color: hsla(0, 0%, 0%, 0.603);
+}
+.exit-form {
+    /* display: flex; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    border-radius: var(--border-radius);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 250px;
+    height: 250px;
+    z-index: 9999;
+    transform: translate(-50%,-50%);
+    font-weight: bold;
+    background-color: var(--component-background);
+}
+.exit-form-button {
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 0.6rem;
+    background-color: var(--button);
+    margin-inline: 5px;
+}
+.exit-form-button:hover {
+    transform: scale(1.05);
+    opacity: 0.8;
+}
+
+.form { 
+    position: relative;
+    width: 80%;
+    font-size: 1.4rem;
+    font-weight: bold;
+    padding: 1rem;
+    background-color: var(--button);
+    border-radius: var(--border-radius);
+}
+.exit-button {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+}
+/* PIN */
+.enter-pin-container {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+input {
+    border-radius: var(--border-radius);
+    border: none;
+    padding: 5px;
+    width: 80%;
+}
+.relative {
+    display: none;
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+}
+.submit-button {
+    background-color: var(--dark-blue);
+    color: var(--white);
+    width: 30px;
+    aspect-ratio: 1/1;
+    border-radius: var(--border-radius);
+    position: absolute;
+    top: 60%;
+    right: 5%;
+    transition: 0.3s ease;
+    transform: translate(-50%,-50%);
+}
+.submit-button:hover {
+    transform: translate(-50%,-50%) scale(1.05);
+}
+.error-msg {
+    text-align: center;
+    color: rgb(222, 48, 48);
+    font-size: 1rem;
+}
+/* Select Action */
+.choose-action-container {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    h2 {
+        font-size: 1.7rem;
+    }
+    select {
+        padding: 0.2rem;
+        font-size: 1rem;
+        width: 100%;
+        max-width: 180px;
+        border-radius: var(--border-radius);
+    }
+}
+.trans-ul {
+    list-style: none;
+    max-height: 165px;
+    overflow-y: auto;
+}
+.trans-ul::-webkit-scrollbar {
+    width: 10px;
+    background-color: transparent;
+}
+.trans-ul::-webkit-scrollbar-thumb {
+    border-radius: var(--border-radius);
+    background-image: linear-gradient(to left, var(--button) , var(--dark-blue), var(--button));
+}
+
+.active-flex {
+    display: flex;
+}
+.active-block {
+    display: block;
+}
+
+@media screen and (max-width: 500px) {
+    html {
+        font-size: 12px;
+    }
+    .submit-button {
+        top: 50%;
+    }
+}
+@media screen and (max-width: 380px) {
+    html {
+        font-size: 9px;
+    }
+}
