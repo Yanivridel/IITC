@@ -9,7 +9,7 @@ let buttonText = null;
 
 _mainFetchBtn.addEventListener("click", (e) => handleFetchClick(e));
 _buttonsCont.addEventListener("click", (e) => handleButtonsClick(e));
-_selectAnime.addEventListener("change", (e) => { animeType = e.target.value; console.log(animeType) } );
+_selectAnime.addEventListener("change", (e) => animeType = e.target.value);
 
 function handleButtonsClick(e) {
     unDisplaySelectImage();
@@ -41,8 +41,6 @@ function handleFetchClick(e) {
         generateRandomAmine();
     else if(text === "Generate Art")
         generateRandomArtwork();
-    else
-        unDisplayLoading();
 }
 
 // DOGS
