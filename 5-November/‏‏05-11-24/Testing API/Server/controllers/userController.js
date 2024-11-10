@@ -34,11 +34,18 @@ export const createUser = async (req, res) => {
       data: newUser,
     });
   } catch (error) {
-    if (error?.errorResponse?.code === 11000) {
-      res.status(400).send(error.errorResponse.errmsg);
+    if (error.code === 11000) {
+        return res.status(400).json({
+            status: "error",
+            message: "Phone number already exists",
+        });
     }
-    res.status(500).send(error);
-  }
+    res.status(500).json({
+        status: "error",
+        message: "An unexpected error occurred",
+        error: error.message,
+    });
+}
 };
 
 export const signInUser = async (req, res) => {
@@ -47,9 +54,9 @@ export const signInUser = async (req, res) => {
       const foundUser = await User.findOne({phoneNumber});
       const isAuth = await comparePassword(password, foundUser.password);
 
-      res.status(200).send("IsAuth: " + isAuth);
+      res.status(200).json({IsAuth: isAuth});
     } catch (error) {
-        res.status(500).send("Hello: " + error);
+        res.status(401).json({error: "phone number or password dont match"});
     }
 }
 

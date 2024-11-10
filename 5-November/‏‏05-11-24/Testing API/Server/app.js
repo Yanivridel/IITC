@@ -14,12 +14,8 @@ const app = express()
 const PORT = 3000
 dotenv.config()
 
-// console.log(process.env.USER);
-
 // DB Connection
 const URI = process.env.DB_URI
-// console.log(URI);
-
 
 mongoose.connect(URI).then(() => {
     console.log("Successfully Connected to MongoDb Server");
@@ -28,11 +24,16 @@ mongoose.connect(URI).then(() => {
 // Middleware
 app.use(express.json())
 app.use(morgan("tiny"))
-app.use(logRequest)
+app.use(logRequest);
+app.use(express.static('./../Client'));
+
+app.get("/", (req, res) => {
+    res.render("index.html");
+});
 
 app.use('/api/jokes', jokesRoutes)
 app.use('/api/users', userRoutes)
 
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`)
+    console.log(`Server is running on http://localhost:${PORT}/`)
 })
