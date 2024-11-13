@@ -20,9 +20,7 @@ const man = {
     sayHello: () => {
         console.log("Hello My Name is Natan");
     }
-
-    
 }
 
 man.sayHello()
-// console.log(add(5, 3));
+console.log(add(5, 3));
