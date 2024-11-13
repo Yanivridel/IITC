@@ -1,14 +1,13 @@
 import User from "../models/userModel.js";
 import jwt from 'jsonwebtoken';
 
-const JWT_KEY = process.env.JWT_KEY;
-
 // utils imports
 import { hashPassword, comparePassword } from "../utils/auth.js";
+const JTW_EXPIRATION = { expiresIn: '1h'};
 
 export const getAllUser = async (req, res) => {
   try {
-    const allFetchedUsers = await User.find();
+    const allFetchedUsers = await User.find().populate('totalJokes');
 
     res.status(200).send({
       status: "success",
@@ -21,11 +20,12 @@ export const getAllUser = async (req, res) => {
 };
 
 export const createUser = async (req, res) => {
-  const { fName, lName, phoneNumber, password } = req.body;
+  const { fName, lName, role, phoneNumber, password } = req.body;
   try {
     const newUser = new User({
       fName,
       lName,
+      role,
       phoneNumber,
       password: await hashPassword(password)
     });
@@ -55,17 +55,34 @@ export const createUser = async (req, res) => {
 export const signInUser = async (req, res) => {
   const { password, phoneNumber } = req.body;
     try {
-      const foundUser = await User.findOne({phoneNumber});
-
+      const foundUser = await User.getUserWithPassword({phoneNumber});
+      console.log("USER FOUND IS: " + foundUser);
       if(!foundUser) {
         res.status(404).json({
-          status: "error",
+          status: "404",
           message: "Error: User Not Found"
         })
       }
       const isAuth = await comparePassword(password, foundUser.password);
+      if(!isAuth) {
+        res.status(404).json({
+          status: "404",
+          message: "Error: phone number or password dont match"
+        })
+      }
 
-      res.status(200).json({IsAuth: isAuth});
+      const { _id, fName, lName, role} = foundUser;
+      const filteredUser = {
+        _id, fName, lName, phoneNumber, role
+      }
+      // Send JWT
+      const token = jwt.sign(
+        filteredUser,
+        process.env.JWT_KEY,
+        JTW_EXPIRATION
+      )
+
+      res.status(200).json(token);
     } catch (error) {
         res.status(401).json({error: "phone number or password dont match"});
     }

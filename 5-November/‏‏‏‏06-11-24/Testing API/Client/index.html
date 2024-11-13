@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login SignUp</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="Menu">
+        <div id='main-content-menu'>
+            <div class='background'></div>
+            <div id="form-container">
+                <div class="button-box">
+                    <div id="btn-clr"></div>
+                    <button id="login-btn" class="toggle-btn">Log in</button>
+                    <button id="signup-btn" class="toggle-btn">Sign up</button>
+                </div>
+                <form id='login-form' class="menu-form">
+                    <div>
+                        <input type="text" id="phoneNumber-login" class="menu-input" required
+                        name="phoneNumber" placeholder="Phone Number" maxLength={15}/>
+                        <div class='position-relative'>
+                            <input type="password" id="password-login" class="menu-input"
+                            name="password" autoComplete="current-password" required
+                            placeholder="Password" maxLength={15}/>
+                            <i class="fa-solid fa-eye eye hidden"></i>
+                            <i class="fa-solid fa-eye-slash eye"></i>
+                        </div>
+                        <p class="error login-invalid hidden">Invalid phone number or password</p>
+                        <p id="forgot-password" class="link">Forgot Password?</p>
+                        <p>Commitment-phobe?   <span class="link">Go ahead as a guest!</span></p>
+                    </div>
+                    <button id="submit-login" class="submit-button" type="submit">Login</button>
+                </form>
+
+                <form id='signup-form' class="menu-form hidden">
+                    <div class="overlay hidden">
+                        <div class="popup">
+                            <i class="fa-solid fa-xmark"></i>
+                            <p>Sign-up successful!</p>
+                        </div>
+                    </div>
+                    <div>
+                        <input id="fName-signup" class="menu-input" required
+                        name="fName" placeholder="First Name" maxLength={15}/>
+                        <input id="lName-signup" class="menu-input" required
+                        name="lName" placeholder="Last Name" maxLength={15}/>
+                        <input id="phoneNumber-signup" class="menu-input" required
+                        name="phoneNumber" placeholder="Phone Number" maxLength={15}/>
+                        <div class='position-relative'>
+                            <input type="password" id="password-signup" class="menu-input" required
+                            name="password" placeholder="Password" maxLength={15}/>
+                            <i class="fa-solid fa-eye eye hidden"></i>
+                            <i class="fa-solid fa-eye-slash eye"></i>
+                        </div>
+                        <div class='position-relative'>
+                            <input type="password" id="repeat-password-signup" class="menu-input" required
+                            name="repeatPassword" placeholder="Repeat Password" maxLength={15} />
+                            <i class="fa-solid fa-eye eye hidden"></i>
+                            <i class="fa-solid fa-eye-slash eye"></i>
+                        </div>
+                        <p class="error signup-invalid" ref={err}></p>
+                    </div>
+                    <button id="submit-signup" class="submit-button" type="submit">"Sign Up"</button>
+                </form>
+                <div class="logged-msg hidden">You Are Now Logged In !</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

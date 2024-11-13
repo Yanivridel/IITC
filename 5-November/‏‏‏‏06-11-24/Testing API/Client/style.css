@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+@font-face {
+    font-family: "coffee soda";
+    src: url('./assets/fonts/Coffee\ Soda.ttf');
+}
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+:root {
+    --elements: hsl(209, 23%, 22%); /* 70% black+10%blue */
+    --background: hsl(207, 26%, 17%); /* 85% black +10%blue */
+    --text: hsl(0, 0%, 100%);
+    --radius: 8px;
+    --shadow: none;
+    --input: #2c3f5d;
+    --link-color: #00b4d8;
+    --link-hover: #07ccf4;
+    --header-background-animation: linear-gradient(270deg, #243B55, #2C5364, #3A6073, #204c60);
+    --page-button: hsl(263, 88%, 62%);
+    --page-button-hover: rgba(138, 74, 243, 0.2);
+
+    --arrowBackground:hsla(208, 19%, 38%, 0.459);
+}
+
+html, body {
+    height: 100%;
+    font-family: "Lora", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+input, select {
+    font-family: "Lora", serif;
+}
+img, svg {
+    display: block;
+}
+
+/* Menu */
+#Menu {
+    /* position: relative; */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* gap: 3rem; */
+    color: var(--text);
+}
+#main-content-menu {
+    padding: 1rem;
+    display: flex;
+    justify-content: center; /* flex-end - for top*/
+    align-items: center;
+    /* gap: 10vw; */
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: -1;
+    background: var(--header-background-animation);
+    background-size: 1000% 1000%;
+    animation: gradientAnimation 10s ease-in-out infinite;
+}
+
+#form-container {
+    width: 300px;
+    min-height: 369px;
+    position: relative;
+    box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    background-color: var(--background);
+    border-radius: 10px;
+    transition: 0.3s ease;
+}
+#menu-theme {
+    position: absolute;
+    top:4px;
+    left:4px;
+    cursor: pointer;
+}
+.button-box {
+    position: relative;
+    width: 220px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid rgb(223, 223, 223);
+    border-radius: var(--radius);
+}
+#btn-clr {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 110px;
+    height: 100%;
+    background: linear-gradient(to right, var(--link-color), var(--link-hover));
+    border-radius: var(--radius);
+    transition: 0.5s ease;
+}
+#btn-clr.right {
+    left: 110px;
+}
+.toggle-btn {
+    color: var(--text);
+    font-family: "coffee soda";
+    font-size: 1.2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 10px 20px;
+    z-index: 1;
+    transition: 0.3s ease;
+}
+
+
+/* LOGIN & SIGNUP FORM */
+.menu-form {
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 270px;
+}
+.menu-input {
+    padding: 0.7rem;
+    margin-block: 0.6rem;
+    width: 100%;
+    border: 1px solid rgb(193, 193, 193);
+    background-color: var(--input);
+    border-radius: var(--radius);
+    color: var(--text);
+    transition: 0.3s ease;
+}
+.menu-input::placeholder {
+    color: #aaa;
+}
+.menu-input:-webkit-autofill {
+    box-shadow: 0 0 0 1000px var(--input) inset !important; /* Background inside input google autofill */
+}
+.menu-input:-webkit-autofill::first-line {
+    color: var(--text) !important; /* Text inside input google autofill */
+}
+.position-relative {
+    position: relative;
+}
+.eye {
+    position: absolute;
+    right: 5%;
+    top: 37%;
+    cursor: pointer;
+}
+.error {
+    color: red;
+    font-size: 0.75rem;
+}
+.error-input {
+    border-color: red;
+}
+.link {
+    font-weight: bold;
+    width: fit-content;
+    margin-block: 0.4rem;
+    color: var(--link-color);
+}
+.link:hover {
+    color: var(--link-hover);
+    cursor: pointer;
+}
+.submit-button {
+    font-weight: bold;
+    font-family: "coffee soda";
+    font-size: 1.2rem;
+    padding: 0.7rem;
+    margin-block: 0.6rem;
+    width: 100%;
+    background: linear-gradient(to right, var(--link-color), var(--link-hover));
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.submit-button:hover {
+    transform: scale(1.02);
+}
+/* pop-up signup */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.popup {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
+    background-color: var(--elements);
+    padding: 20px;
+    border-radius: var(--radius);
+    width: 270px;
+    height: 150px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.popup .fa-xmark {
+    position: absolute;
+    top:20px;
+    right:20px;
+    font-size: 2rem;
+}
+.popup p {
+    width: 60%;
+}
+.popup p span {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+
+
+.hidden {
+    display: none;
+} 
+
+/* Animation */
+.shake {
+    animation: shake 0.5s ease;
+}
+@keyframes shake {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(-5px); }
+    40% { transform: translateX(5px); }
+    60% { transform: translateX(-5px); }
+    80% { transform: translateX(5px); }
+    100% { transform: translateX(0); }
+}

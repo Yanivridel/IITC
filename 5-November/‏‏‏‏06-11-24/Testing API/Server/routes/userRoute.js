@@ -1,5 +1,4 @@
 import express from "express";
-const router = express.Router();
 
 import {
   getAllUser,
@@ -8,7 +7,12 @@ import {
   getUserById
 } from '../controllers/userController.js'
 
-router.get("/all", getAllUser);
+import { isAdmin, verifyToken } from "../middleware/auth.js";
+
+const router = express.Router();
+
+
+router.get("/all", verifyToken, isAdmin, getAllUser);
 
 router.post("/signup", createUser);
 
