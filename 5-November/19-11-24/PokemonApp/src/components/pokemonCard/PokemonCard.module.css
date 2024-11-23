@@ -1,0 +1,148 @@
+.card {
+  width: 150px;
+  height: 130px;
+  border-radius: 20px;
+  margin: 5px;
+}
+.card:hover {
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 1.2);
+  transform: scale(1.1);
+}
+
+.title1 {
+  font-size: 15px;
+  background-color: rgb(0 0 0 / 50%);
+  margin-block: 0;
+  padding-block: 0.6em;
+  border-radius: 20px;
+}
+.li {
+  list-style-type: none;
+  font-size: 10px;
+  font-weight: bold;
+  text-shadow: 0px 0px 5px black;
+}
+
+.ul {
+  padding-left: 0px;
+  margin: 0;
+  height: 48px;
+  width: 70px;
+  margin-top: 8px;
+}
+
+.abilities {
+  width: 75px;
+}
+.pokemonOrder {
+  font-size: 38px;
+  margin-block: 0;
+  margin-right: 18px;
+  margin-top: 2px;
+}
+.img {
+  height: 75px;
+  width: 75px;
+  padding-right: 5px;
+  margin-top: 15px;
+}
+
+.cardBody {
+  display: flex;
+}
+
+.fire {
+  background-image: url("../../image/fire_type_pokemon.jpg");
+  background-repeat: no-repeat;
+  background-position: right -460px bottom -246px;
+}
+.grass {
+  background-image: url("../../image/grass_type_pokemon.jpg");
+  background-repeat: no-repeat;
+  background-position: right -460px bottom -246px;
+}
+.water {
+  background-image: url("../../image/water_type_pokemon.jpg");
+  background-repeat: no-repeat;
+  background-position: right -460px bottom -246px;
+}
+.bug {
+  background-image: url("../../image/bug_type_pokemon.jpg");
+  background-repeat: no-repeat;
+  background-position: right -560px bottom -305px;
+}
+.normal {
+  background-image: url("../../image/normal_type_pokemon.jpg");
+  background-repeat: no-repeat;
+  background-position: right -460px bottom -246px;
+}
+.poison {
+  background-image: url("../../image/poison_type_pokemon.jpg");
+  background-repeat: no-repeat;
+  background-position: right -566px bottom -300px;
+}
+.electric {
+  background-image: url("../../image/electric_type_pokemon.jpg");
+  background-repeat: no-repeat;
+  background-position: right -410px bottom -205px;
+}
+.ground {
+  background-image: url("../../image/ground_type_pokemon.jpg");
+  background-repeat: no-repeat;
+  background-position: right -418px bottom -208px;
+  background-size: 600%;
+}
+.fighting {
+  background-image: url("../../image/fighting_pokemon_energy.jpg");
+  background-repeat: no-repeat;
+  background-position: right -460px bottom -246px;
+  background-size: 680%;
+}
+.fairy {
+  background-image: url("../../image/fairy_type_pokemon.jpg");
+  background-repeat: no-repeat;
+  background-position: right -440px bottom -230px;
+  background-size: 650%;
+}
+.psychic {
+  background-image: url("../../image/physic_pokemon_energy.jpg");
+  background-repeat: no-repeat;
+  background-position: right -440px bottom -230px;
+  background-size: 650%;
+}
+.ghost {
+  background-image: url("../../image/ghost_type_pokemon_.jpg");
+  background-repeat: no-repeat;
+  background-position: right -440px bottom -230px;
+  background-size: 650%;
+}
+.rock {
+  background-image: url("../../image/rock_type_pokemon_wallpaper_by_elbarnzo_dbi2b77-250t.jpg");
+  background-repeat: no-repeat;
+  background-position: right -440px bottom -230px;
+  background-size: 650%;
+}
+.ice {
+  background-image: url("../../image/ice_type_pokemon_.jpg");
+  background-repeat: no-repeat;
+  background-position: right -440px bottom -230px;
+  background-size: 650%;
+}
+.dragon {
+  background-image: url("../../image/dragon_type_pokemon.jpg");
+  background-repeat: no-repeat;
+  background-position: right -440px bottom -230px;
+  background-size: 650%;
+}
+.dark {
+  background-image: url("../../image/dark_type_pokemon.jpg");
+  background-repeat: no-repeat;
+  background-position: right -440px bottom -230px;
+  background-size: 650%;
+}
+.steel {
+  background-image: url("../../image/steel_type_pokemon.jpg");
+  background-repeat: no-repeat;
+  background-position: right -440px bottom -230px;
+  background-size: 650%;
+}

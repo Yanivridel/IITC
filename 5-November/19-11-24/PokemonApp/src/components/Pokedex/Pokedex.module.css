@@ -1,0 +1,4 @@
+.pokemonListDiv {
+  display: flex;
+  flex-wrap: wrap;
+}

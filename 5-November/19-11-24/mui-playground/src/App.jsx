@@ -27,13 +27,13 @@ function App() {
             {DUMMY_USERS.map((user) => {
               return <div key={user.id}>
                 <Avatar src={user.url} sx={{ width: "5vw", height: "5vw" }}>
-                  {/* {getInitial(user.fullName)} */}
+                  {getInitial(user.fullName)}
                 </Avatar>
                 <p>{user.fullName}</p>
               </div>
             })}
         </div>
-        {/* <TextField
+        <TextField
           sx={{
             backgroundColor: "#0d8c66",
             margin: "3rem",
@@ -44,7 +44,7 @@ function App() {
           }}
           label="ביבי המלך"
           variant="filled"
-        /> */}
+        />
       </div>
   );
 }
