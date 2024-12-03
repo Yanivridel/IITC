@@ -2,6 +2,8 @@ import express from "express"
 import morgan from "morgan"
 import dotenv from "dotenv"
 import mongoose from "mongoose"
+import cors from "cors"
+
 
 // import authUser from './middleware/auth.js'
 import logRequest from "./middleware/logger.js"
@@ -22,6 +24,7 @@ mongoose.connect(URI).then(() => {
 })
 
 // Middleware
+app.use(cors());
 app.use(express.json())
 app.use(morgan("tiny"))
 app.use(logRequest);
