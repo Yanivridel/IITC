@@ -7,7 +7,6 @@ interface TaskProps {
 }
 
 function Task({ task, setToDos } : TaskProps) {
-    const [ check, setCheck] = useState<boolean>(false);
 
     const handleDeleteToDo = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>, id: string) => {
         setToDos(todos => todos.filter(todo => todo.id !== id))
