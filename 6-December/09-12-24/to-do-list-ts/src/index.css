@@ -1,0 +1,145 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.overline {
+  text-decoration: line-through;
+}
+
+/* General Page Styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f7f7f7;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+h1, h2 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Form Styling */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+form input[type="text"],
+form input[type="desc"],
+form button {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+form button {
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #45a049;
+}
+
+/* Filter Section */
+h2 {
+  margin-top: 20px;
+}
+
+#search-text, #filter-status {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Task List Styling */
+ul#todos-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+ul#todos-list li {
+  background-color: white;
+  padding: 15px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Task Text and Description */
+h1.overline, p.overline {
+  text-decoration: line-through;
+  color: #888;
+}
+
+h1 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+  color: #555;
+}
+
+/* Checkbox and Button in Task */
+input[type="checkbox"] {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+button {
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #d9363e;
+}
+
+/* Information Section */
+div {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #e6f7ff;
+  border: 1px solid #91d5ff;
+  border-radius: 4px;
+}
+
+div p {
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+/* Remove All Button */
+button.remove-all {
+  background-color: #ff7875;
+  margin-top: 10px;
+}
+
+button.remove-all:hover {
+  background-color: #d9363e;
+}
