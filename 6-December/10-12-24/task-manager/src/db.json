@@ -1,0 +1,52 @@
+{
+  "tasks": [
+    {
+      "title": "Finish project reporttt",
+      "desc": "Complete the final report for the project and submit it.",
+      "dueDate": "2024-12-07T00:00:00.000Z",
+      "priority": "med",
+      "status": "pending",
+      "id": "8f09"
+    },
+    {
+      "title": "Buy groceriessss",
+      "desc": "Get vegetables, fruits, and dairy products.",
+      "dueDate": "2024-08-25T18:00:00.000Z",
+      "priority": "medium",
+      "status": "completed",
+      "id": "bd7c"
+    },
+    {
+      "title": "Book dentist appointment",
+      "desc": "Schedule a routine dental check-up.",
+      "dueDate": "2024-09-05T15:00:00Z",
+      "priority": "low",
+      "status": "completed",
+      "id": "598f"
+    },
+    {
+      "title": "Prepare presentation",
+      "desc": "Create slides for the team meeting next week.",
+      "dueDate": "2024-09-15T09:00:00Z",
+      "priority": "high",
+      "status": "pending",
+      "id": "8770"
+    },
+    {
+      "title": "Clean the house",
+      "desc": "Vacuum and dust the entire house.",
+      "dueDate": "2024-08-27T12:00:00Z",
+      "priority": "low",
+      "status": "progress",
+      "id": "e1ee"
+    },
+    {
+      "id": "9429",
+      "title": "asdd",
+      "desc": "sddd",
+      "dueDate": "2024-12-07T00:00:00.000Z",
+      "priority": "med",
+      "status": "completed"
+    }
+  ]
+}
