@@ -58,16 +58,16 @@ export const createPost = async ({title, content}: IPost) => {
 export const getPostById = async (id: string) => {
     try {
         const { data } = await axios.get(`${API_URL}/api/posts/${id}`);
-        return data;
+        return data.data;
     } 
     catch (error) {
         console.error('get post error:', error);
     }
 };
 
-export const updatedPostById = async ({title, content, id}: IPost ) => {
+export const updatedPostById = async ({title, content, _id}: IPost ) => {
     try {
-        const { data } = await axios.put(`${API_URL}/api/posts/${id}`, { title, content });
+        const { data } = await axios.put(`${API_URL}/api/posts/${_id}`, { title, content });
         return data;
     } 
     catch (error) {
@@ -75,7 +75,7 @@ export const updatedPostById = async ({title, content, id}: IPost ) => {
     }
 }
 
-export const deleteRecipeDB = async (recipeId: string ) => {
+export const deletePostById = async (recipeId: string ) => {
     try {
         const { data } = await axios.delete(`${API_URL}/api/posts/${recipeId}`);
         return data;

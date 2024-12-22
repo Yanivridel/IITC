@@ -19,7 +19,7 @@ export default function Home() {
 
         {/* Featured Posts */}
         <section className="py-12 container mx-auto px-6">
-            <h2 className="text-3xl font-semibold text-gray-800 text-center">Featured Posts</h2>
+            <h2 className="text-3xl font-semibold text-gray-800 text-center">Last Posts</h2>
             <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {/* Example Posts */}
             {[1, 2, 3].map((post) => (

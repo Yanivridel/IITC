@@ -11,6 +11,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import { AppSidebar } from "./components/Sidebar";
 import { SidebarTrigger } from "./components/ui/sidebar";
+import PostPage from "./pages/PostPage";
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/profile" element={<Profile/>} />
       <Route path="/blog" element={<Blog />} />
+      <Route path="/post/:id" element={<PostPage />} />
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
       {/* <Route path="/login" element={<Login />} /> */}
