@@ -1,17 +1,18 @@
 import { Button } from "@/components/ui/button";
-import { SkeletonCard } from "@/components/Skeletons";
 // Types
 import { IPost } from "@/types/postTypes";
 import { SquarePlus } from "lucide-react";
 import PostCard from "@/components/PostCard";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { usePosts } from "@/customHooks/usePosts";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Loading from "@/components/Loading";
 import { useNavigate } from "react-router-dom";
 import AddEditPostModal from "@/components/AddEditPostModal";
 import { useToast } from "@/hooks/use-toast";
 import { createPost, updatedPostById } from "@/services/api";
+import { Input } from "@/components/ui/input";
+import debounce from 'lodash.debounce';
 
 export default function Blog() {
     const queryClient = useQueryClient();
@@ -20,6 +21,8 @@ export default function Blog() {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [postToEdit, setPostToEdit] = useState<IPost | null>(null);
+    const [title, setTitle] = useState("");
+    const [debouncedTitle, setDebouncedTitle] = useState("");
 
     const {
         data: postsData,
@@ -28,10 +31,10 @@ export default function Blog() {
         isFetchingNextPage,
         fetchNextPage,
         hasNextPage,
-    } = usePosts();
+    } = usePosts(10, debouncedTitle);
 
     const posts = postsData?.pages.flatMap((page) => page) || [];
-    console.log(postsData)
+    // console.log(postsData)
 
     const addPostMutation = useMutation({
         mutationFn: createPost,
@@ -115,12 +118,22 @@ export default function Blog() {
     }, [fetchNextPage, hasNextPage, isFetchingNextPage]);
 
 
-    if (isLoading) return <Loading />;
+    function handleTitleChange(e: React.ChangeEvent<HTMLInputElement>) {
+        setTitle(e.target.value);
+        debouncedHandleTitleChange(e.target.value);
+    }
+
+    const debouncedHandleTitleChange = useCallback(
+        debounce((value: string) => {
+            setDebouncedTitle(value);
+        }, 300),
+        []
+    );
+
     if (error) {
         navigate("/404");
         return null;
     }
-    if (!posts.length) return <p>Posts not found</p>;
 
     return (
         <div className="container mx-auto p-6 max-w-7xl">
@@ -130,6 +143,13 @@ export default function Blog() {
         >
             <SquarePlus />
         </Button>
+        <h1 className="text-6xl text-center">Posts</h1>
+        <Input
+                placeholder="Search by title..."
+                value={title}
+                onChange={handleTitleChange}
+                className="w-full md:w-1/3 mx-auto my-9"
+        />
         <AddEditPostModal
             isOpen={isModalOpen}
             onClose={() => setIsModalOpen(false)}
@@ -138,16 +158,20 @@ export default function Blog() {
         />
 
         {/* Posts Section */}
+        { isLoading ? 
+        < Loading />
+        :
         <div className="space-y-6">
-            <h1 className="text-6xl text-center">Posts</h1>
             {posts.map((post: IPost) => (
             <PostCard key={post._id} post={post} handleEditPost={handleEditPost} />
             ))}
             {isFetchingNextPage && <Loading />}
+            {!posts.length && <p className="text-center">No Posts were found...</p>}
             {!hasNextPage && (
             <p className="text-center text-gray-500">No more posts to load.</p>
             )}
         </div>
+        }
         </div>
     );
 }

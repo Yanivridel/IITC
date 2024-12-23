@@ -8,15 +8,16 @@ import postModel from '../models/postModel';
 // GET ALL POSTS
 export const getAllPosts = async (req: Request, res: Response): Promise<void> => {
     try {
-
+        const title = req.query.title || "";
         const page = parseInt(req.query.page as string, 10) || 1;
         const limit = parseInt(req.query.limit as string, 10) || 10;
 
         const skip = (page - 1) * limit;
+        const filter = { title: { $regex: title, $options: "i" } }
 
-        const posts = await postModel.find().skip(skip).limit(limit);
+        const posts = await postModel.find(filter).skip(skip).limit(limit);
 
-        const totalPosts = await postModel.countDocuments();
+        const totalPosts = await postModel.countDocuments(filter);
 
         res.status(200).json({
             status: "success",

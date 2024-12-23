@@ -35,10 +35,10 @@ export const checkLogin = async ({email, password}: checkLoginType) => {
     }
 };
 
-export const getAllPosts = async (page = 1, limit = 10) => {
+export const getAllPosts = async (page = 1, limit = 10, title= "") => {
     try {
         const { data } = await axios.get(`${API_URL}/api/posts`, {
-            params: { page, limit },
+            params: { page, limit, title },
         });
         return data.data;
     } catch (error) {
