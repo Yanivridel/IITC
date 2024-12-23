@@ -58,13 +58,13 @@ export function AppSidebar() {
     <Sidebar>
 
         <SidebarHeader>
-            <h1 className="text-2xl font-bold text-center text-blue-600">My Blog</h1>
+            <h1 className="text-2xl font-bold text-center text-blue-600">Blogy</h1>
         </SidebarHeader>
 
         {/* Content */}
         <SidebarContent>
             <SidebarGroup>
-                <SidebarGroupLabel>Forkfolio</SidebarGroupLabel>
+                <SidebarGroupLabel>Pages</SidebarGroupLabel>
                 <SidebarGroupContent>
                 <SidebarMenu>
                     {navList.map((link) => (

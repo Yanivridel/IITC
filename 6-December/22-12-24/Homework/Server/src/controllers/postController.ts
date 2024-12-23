@@ -9,12 +9,24 @@ import postModel from '../models/postModel';
 export const getAllPosts = async (req: Request, res: Response): Promise<void> => {
     try {
 
-        const posts = await postModel.find();
+        const page = parseInt(req.query.page as string, 10) || 1;
+        const limit = parseInt(req.query.limit as string, 10) || 10;
+
+        const skip = (page - 1) * limit;
+
+        const posts = await postModel.find().skip(skip).limit(limit);
+
+        const totalPosts = await postModel.countDocuments();
 
         res.status(200).json({
             status: "success",
-            message: "posts found successfully",
-            data: posts
+            message: "Posts fetched successfully",
+            data: posts,
+            meta: {
+                totalPosts,
+                currentPage: page,
+                totalPages: Math.ceil(totalPosts / limit),
+            },
         });
 
     } catch (error) {

@@ -1,12 +1,13 @@
 import { getAllPosts } from "@/services/api";
-import { useQuery } from "@tanstack/react-query";
+import { useInfiniteQuery } from "@tanstack/react-query";
 
-export function usePosts() {
-    return useQuery({
+export function usePosts(limit = 10) {
+    return useInfiniteQuery({
         queryKey: ["posts"],
-        queryFn: () => getAllPosts(),
-        // retry: 1,
-        // gcTime: 5000, // default to 5 minute
-        // refetchOnWindowFocus: false, // default to 5 true
+        queryFn: ({ pageParam = 1 }) => getAllPosts(pageParam, limit),
+        getNextPageParam: (lastPage, allPages) => {
+            return lastPage.length === limit ? allPages.length + 1 : undefined;
+        },
+        initialPageParam: 1, 
     });
 }

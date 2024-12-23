@@ -35,12 +35,13 @@ export const checkLogin = async ({email, password}: checkLoginType) => {
     }
 };
 
-export const getAllPosts = async () => {
+export const getAllPosts = async (page = 1, limit = 10) => {
     try {
-        const { data } = await axios.get(`${API_URL}/api/posts`);
+        const { data } = await axios.get(`${API_URL}/api/posts`, {
+            params: { page, limit },
+        });
         return data.data;
-    } 
-    catch (error) {
+    } catch (error) {
         console.error('get posts error:', error);
     }
 };
